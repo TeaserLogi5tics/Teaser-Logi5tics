@@ -90,35 +90,34 @@ def restart_game():
 window = tk.Tk()
 window.title("Teaser Logi5tics")
 window.geometry("1080x720")
-window.config(bg="#CCCCCC")
+window.config(bg="#C6A488")
 
 icon = tk.PhotoImage(file="logo1.png")
 window.iconphoto(False, icon)
 
-question_label = tk.Label(window, text="", wraplength=300, font=("Verdana", 11), bg="#CCCCCC")
-question_label.pack(pady=20)
+question_label = tk.Label(window, text="", wraplength=600, font=("Verdana", 15, "bold"))
+question_label.pack(pady=20, padx=10)
 
-answer_entry = tk.Entry(window, font=("Arial", 10))
+result_label = tk.Label(window, text="", font=("Times New Roman",13), bg="#f5f5f5")
+result_label.pack(pady=5, padx=10)
+
+answer_entry = tk.Entry(window, font=("Times New Roman", 20))
 answer_entry.pack()
 
-submit_button = tk.Button(window, text="Submit Answer", command=check_answer, relief="ridge", bg="gray", fg="white")
-submit_button.pack(pady=10)
+timer_label = tk.Label(window, text="Time: 20", bg="#C5B5A6", fg="black",font=("Arial", 10, "bold"))
+timer_label.pack(pady=5, padx=10)
 
-next_button = tk.Button(window, text="Next Riddle", command=next_riddle, state="disabled", relief="ridge")
-next_button.pack(pady=10)
+score_label = tk.Label(window, text="Score: 0", bg="#C5B5A6", font=("Times New Roman", 9, "bold"), relief="ridge")
+score_label.pack(pady=10, padx=10)
 
-result_label = tk.Label(window, text="", font=("Arial", 9), bg="#f5f5f5")
-result_label.pack(pady=5)
+submit_button = tk.Button(window, text="Submit Answer", command=check_answer,font=("Verdana",12, "bold"), relief="ridge", bg="#C5B5A6", fg="black", height=3, width=15)
+submit_button.pack(pady=10,padx=10)
 
-timer_label = tk.Label(window, text="Time: 20", bg="#CCCCCC", font=("Arial", 10, "bold"))
-timer_label.pack(pady=5)
+next_button = tk.Button(window, text="Next Riddle", command=next_riddle, state="disabled", font=("Verdana",12, "bold"), relief="ridge", bg="#C5B5A6", fg="black", height=2, width=12)
+next_button.pack(side = "bottom",pady=10, padx=10)
 
-score_label = tk.Label(window, text="Score: 0", bg="#f5f5f5", font=("Arial", 9), relief="ridge")
-score_label.pack(side="bottom", pady=10)
-
-restart_button = tk.Button(window, text="Restart Game", command=restart_game, bg="#90ee90", font=("Arial", 10, "bold"))
+restart_button = tk.Button(window, text="Restart Game", command=restart_game, bg="#C5B5A6", fg="black", font=("Arial", 10, "bold"))
 restart_button.pack_forget()
-
 
 show_riddle()
 window.mainloop()
